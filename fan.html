@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy 1 Month Anniversary</title>
+  <meta name="viewport" content="width=400, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #ffecf2 0%, #fff8e6 100%);
+      font-family: 'Sriracha', cursive, sans-serif;
+      text-align: center;
+      color: #d26677;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-top: 40px;
+      font-size: 2.4em;
+      letter-spacing: 2px;
+      text-shadow: 1px 2px 10px #fff2f6;
+    }
+    .date {
+      color: #b99b6b;
+      margin-bottom: 10px;
+    }
+    img {
+      border-radius: 18px;
+      margin-top: 18px;
+      width: 260px;
+      max-width: 80vw;
+      box-shadow: 0 6px 22px #ffdbe7;
+      border: 3px solid #fff8f2;
+    }
+    .love-msg {
+      margin: 32px auto 0;
+      font-size: 1.3em;
+      background: #fff6fa;
+      color: #bd5672;
+      display: inline-block;
+      padding: 24px 35px;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #ffe6f0;
+      max-width: 350px;
+      white-space: pre-line;
+    }
+    .secret-btn {
+      margin: 40px auto 12px;
+      background: linear-gradient(90deg, #fa8fb0 40%, #ffe2f2 100%);
+      color: #fff;
+      border: none;
+      font-size: 1.2em;
+      border-radius: 32px;
+      padding: 16px 35px;
+      box-shadow: 0 3px 14px #fdc6e1;
+      cursor: pointer;
+      transition: 0.2s;
+      outline: none;
+      letter-spacing: 1.5px;
+    }
+    .secret-btn:active {
+      background: #f093aa;
+    }
+    .secret-box {
+      display: none;
+      margin: 25px auto;
+      padding: 25px 30px;
+      border-radius: 16px;
+      background: #fff1e6;
+      color: #d24a63;
+      font-size: 1.1em;
+      max-width: 320px;
+      box-shadow: 0 3px 10px #ffe6e6;
+      white-space: pre-line;
+      animation: pop 0.6s;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0.2; }
+      80% { transform: scale(1.05);}
+      100% { transform: scale(1); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 1 Month With You 💖</h1>
+  <div class="date">28 กรกฎาคม 2568</div>
+  <img src="https://i.postimg.cc/7hKkB0Dc/fan.png" alt="our photo" >
+
+  <div class="love-msg">
+    ขอบคุณที่ทำให้ทุกวันเต็มไปด้วยความรักและรอยยิ้ม<br>
+    อยู่ด้วยกันอีกนาน ๆ นะ รักที่สุดในโลกเลย 💞
+  </div>
+  <button class="secret-btn" onclick="showSecret()">คลิกเพื่อเปิดกล่องข้อความลับ 💌</button>
+  <div class="secret-box" id="secretBox">
+    เธอเค้ารักเธอมากเลยน้า คอยอยู่กับเค้าไปนานๆนะ<br>
+    เค้ารู้สึกโชคดีที่มีเธออยู่ข้าง ๆ <br>
+    ขอบคุณที่อยู่ในทุกช่วงเวลาของกันและกันนะ 💗<br>
+    เค้าอาจจะทำให้รู้สึกน้อยใจบ้าง เสียใจบ้าง เค้าขอโทษเธอนะคะเธอ <br>
+    อยู่กับหมาเด็กคนนี้ไปนานๆน้าาาารักค้าบ<br>
+    จ๊ฟมั้ว 💞💞
+
+  </div>
+  <script>
+    function showSecret() {
+      document.getElementById('secretBox').style.display = 'block';
+      document.querySelector('.secret-btn').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
