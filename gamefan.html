@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ถามจริง... ตอบตรงๆนะ 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap');
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe4e1 100%);
+            font-family: 'Mali', cursive;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.1);
+            text-align: center;
+            border: 5px solid #ffb6c1;
+            z-index: 10;
+            width: 350px;
+        }
+
+        h1 { 
+            color: #d63384; 
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+        }
+
+        /* กล่องคุมปุ่ม */
+        .button-box { 
+            position: relative; 
+            width: 100%; 
+            height: 200px; /* เพิ่มพื้นที่ให้ปุ่มหนีได้กว้างขึ้นในกรอบ */
+            margin: 0 auto;
+        }
+        
+        button {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            border: none;
+            transition: all 0.2s ease;
+            font-family: 'Mali', cursive;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-110%);
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+            z-index: 5;
+        }
+
+        #noBtn {
+            background-color: #ced4da;
+            color: #495057;
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(10%);
+            white-space: nowrap;
+        }
+
+        /* หน้าต่างข้อความ (Modal) */
+        #loveModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 80%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .heart {
+            position: absolute;
+            color: #ffb6c1;
+            font-size: 20px;
+            pointer-events: none;
+            animation: float 3s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>รักเค้าไหม? 💖</h1>
+        <div class="button-box" id="box">
+            <button id="yesBtn" onclick="showLove()">รักที่สุด! ✨</button>
+            <button id="noBtn" onclick="moveButton()">ไม่รัก 🥺</button>
+        </div>
+    </div>
+
+    <div id="loveModal">
+        <div class="modal-content">
+            <h2 style="color: #ff4d6d;">เย้ยยยยย! 🥰</h2>
+            <p>เค้ารู้ว่าตัวโตกรักเค้าที่สุดในโลกเลย</p>
+            <p>เค้าก็รักตัวโตเหมือนกันนะค้าบบบ 💖✨</p>
+            <button onclick="closeModal()" style="background: #ff4d6d; color: white; margin-top: 10px;">งื้ออออ ❤️</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const box = document.getElementById('box');
+            
+            // ขอบเขตที่ปุ่มจะวิ่งเล่นได้ใน Card
+            const maxWidth = box.clientWidth - btn.clientWidth;
+            const maxHeight = box.clientHeight - btn.clientHeight;
+            
+            // สุ่มตำแหน่งใหม่
+            const newX = Math.random() * maxWidth;
+            const newY = Math.random() * maxHeight;
+            
+            btn.style.transform = 'none';
+            btn.style.left = newX + 'px';
+            btn.style.top = newY + 'px';
+        }
+
+        function showLove() {
+            document.getElementById('loveModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('loveModal').style.display = 'none';
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+
+</body>
+</html>
